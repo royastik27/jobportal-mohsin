@@ -46,12 +46,14 @@ const CompanySetup = () => {
         }
         try {
             setLoading(true);
+            // console.log('FLAG');
             const res = await axios.put(`${COMPANY_API_END_POINT}/update/${params.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },
                 withCredentials: true
             });
+            // console.log(res);
             if (res.data.success) {
                 toast.success(res.data.message);
                 navigate("/admin/companies");
